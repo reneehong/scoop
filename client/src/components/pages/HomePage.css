@@ -6,17 +6,28 @@
 
 .header {
   text-align: center;
-  padding-top: 7%;
+  padding-top: 1%;  /* Reduced padding */
   padding-right: 7%;
   padding-left: 7%;
   padding-bottom: 1%;
   width: 38%;
+  margin-top: 0;  /* Ensure no additional margin */
+}
+
+.header h1 {
+  margin-bottom: 1em;  /* Add more space below the heading */
+}
+
+.header p {
+  margin-top: 1em;  /* Add more space above the paragraph */
+  padding-top: 0;
 }
 
 .image-container {
   display: flex;
   justify-content: center;
   margin-bottom: 2%; /* Adjust the margin to reduce space */
+  margin-top: 3em; 
 }
 
 .main-image {
@@ -78,3 +89,4 @@
   padding-bottom: 1%;
   width: 38%;
 }
+
