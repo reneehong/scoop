@@ -75,6 +75,9 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold; /* Make the submit button text bold */
+  overflow: visible;
+  z-index: 10;
+  margin-bottom: 8rem;
 }
 
 .signin-image-container {
@@ -85,6 +88,7 @@
 .signin-image {
   width: 100%;
   border-radius: 5px;
+  margin-top: 1rem;
 }
 
 .error-message {
