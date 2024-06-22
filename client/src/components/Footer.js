@@ -16,7 +16,7 @@ const Footer = () => {
             <Link to="/" className="footer-link">
               <div>about scoop</div>
             </Link>
-            <Link to="/terms-of-use" className="footer-link">
+            <Link to="/termsofuse" className="footer-link">
               <div>terms of use</div>
             </Link>
             <Link to="/privacypolicy" className="footer-link">
@@ -27,8 +27,11 @@ const Footer = () => {
             <Link to="/contact-us" className="footer-link">
               <div>contact us</div>
             </Link>
-            <Link to="/accessibility-statement" className="footer-link">
+            <Link to="/accessibility" className="footer-link">
               <div>accessibility statement</div>
+            </Link>
+            <Link to="/faq" className="footer-link">
+              <div>faq</div>
             </Link>
           </div>
         </div>

@@ -1,0 +1,15 @@
+.termsheader {
+  text-align: center;
+  height: 20%;
+}
+
+.termstext {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.bullet {
+  list-style-type: disc; /* Default bullet style */
+  margin: 20px 0; /* Margin above and below the list */
+  padding-left: 40px; /* Indent the list from the left */
+}

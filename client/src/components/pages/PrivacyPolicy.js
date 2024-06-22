@@ -14,8 +14,9 @@ const PrivacyPolicy = () => {
           to privacy. This Privacy Policy explains what information we collect, how we use it, and
           what rights you have in relation to it. If you have any questions or concerns about our
           policy, or our practices with regards to your personal information, please contact us via
-          our contact form. By using our website and services, you agree to the collection, use, and
-          disclosure of your information in accordance with this Privacy Policy.
+          our contact information on the homepage. By using our website and services, you agree to
+          the collection, use, and disclosure of your information in accordance with this Privacy
+          Policy.
         </p>
         <h2>Information We Collect</h2>
         <p>
@@ -44,26 +45,28 @@ const PrivacyPolicy = () => {
             <strong>Communications: </strong> We collect any information you provide to us when you
             communicate with us through customer support or other means.
           </li>
-          <h3>Information Collected Automatically</h3>
-          <div className="bullet">
-            <li>
-              {" "}
-              <strong>Usage Data:</strong> We collect information about your interactions with our
-              website, such as the pages you visit, the time and date of your visits, and the links
-              you click.
-            </li>
-            <li>
-              <strong>Device Information: </strong>We collect information about the device you use
-              to access our website, including the hardware model, operating system and version, and
-              mobile network information.
-            </li>
-            <li>
-              <strong>Cookies and Similar Technologies: </strong>We use cookies and similar
-              technologies to collect information about your usage of our website and to provide a
-              better user experience.
-            </li>
-          </div>
-          <h2>How We Use Your Information</h2>
+        </div>
+        <h3>Information Collected Automatically</h3>
+        <div className="bullet">
+          <li>
+            {" "}
+            <strong>Usage Data:</strong> We collect information about your interactions with our
+            website, such as the pages you visit, the time and date of your visits, and the links
+            you click.
+          </li>
+          <li>
+            <strong>Device Information: </strong>We collect information about the device you use to
+            access our website, including the hardware model, operating system and version, and
+            mobile network information.
+          </li>
+          <li>
+            <strong>Cookies and Similar Technologies: </strong>We use cookies and similar
+            technologies to collect information about your usage of our website and to provide a
+            better user experience.
+          </li>
+        </div>
+        <h2>How We Use Your Information</h2>
+        <div className="bullet">
           <p>We use the information we collect for the following purposes:</p>
           <li>
             <strong>To Provide and Improve Our Services:</strong> We use your information to
@@ -89,8 +92,10 @@ const PrivacyPolicy = () => {
             <strong>To Comply with Legal Obligations: </strong>We use your information to comply
             with legal and regulatory requirements.
           </li>
-          <h2>Sharing Your Information</h2>
-          <p>We may share your information with the following parties:</p>
+        </div>
+        <h2>Sharing Your Information</h2>
+        <p>We may share your information with the following parties:</p>
+        <div className="bullet">
           <li>
             <strong> Service Providers: </strong> We share your information with third-party service
             providers who perform services on our behalf, such as allowing our website to run, data
@@ -104,8 +109,10 @@ const PrivacyPolicy = () => {
             <strong>Legal Requirements:</strong> We may disclose your information if required by law
             or in response to valid requests by public authorities.
           </li>
-          <h2>Your Rights and Choices</h2>
-          <p>You have certain rights regarding your personal information: </p>
+        </div>
+        <h2>Your Rights and Choices</h2>
+        <p>You have certain rights regarding your personal information: </p>
+        <div className="bullet">
           <li>
             <strong>Access and Update: </strong>You can access and update your personal information
             through your account settings.
@@ -134,7 +141,7 @@ const PrivacyPolicy = () => {
         <h2>Contact Us</h2>
         <p>
           If you have any questions about this Privacy Policy, please contact us via our contact
-          form.
+          information on the homepage.
         </p>
       </div>
     </section>
