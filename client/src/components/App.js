@@ -17,6 +17,7 @@ import AddAListing from "./pages/AddAListing";
 import MyListings from "./pages/MyListings";
 import Profile from "./pages/Profile.js";
 import Preferences from "./pages/Preferences.js";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 import "../utilities.css";
 
@@ -24,7 +25,6 @@ import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 import { useTheme } from "../ThemeContext.js"; // Import useTheme
-
 
 /**
  * Define the "App" component
@@ -64,6 +64,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/productpage" element={<ProductPage />} />
         <Route path="/addalisting" element={<WithSidebar Component={AddAListing} />} />
         <Route path="/mylistings" element={<WithSidebar Component={MyListings} />} />

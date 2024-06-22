@@ -20,7 +20,10 @@ const Footer = () => {
               privacy policy
             </Link>
             <Link to="/terms-of-use" className="footer-link">
-              terms of use
+              <div>terms of use</div>
+            </Link>
+            <Link to="/privacy-policy" className="footer-link">
+              <div>privacy policy</div>
             </Link>
           </div>
           <div className="footer-link-container-2">
