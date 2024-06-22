@@ -8,27 +8,27 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-logo-container">
           <Link to="/" className="footer-logo">
-            <div>scoop</div>
+            scoop
           </Link>
         </div>
         <div className="footer-link-containers">
           <div className="footer-link-container-1">
             <Link to="/" className="footer-link">
-              <div>about scoop</div>
+              about scoop
+            </Link>
+            <Link to="/privacypolicy" className="footer-link">
+              privacy policy
             </Link>
             <Link to="/terms-of-use" className="footer-link">
-              <div>terms of use</div>
-            </Link>
-            <Link to="/privacy-policy" className="footer-link">
-              <div>privacy policy</div>
+              terms of use
             </Link>
           </div>
           <div className="footer-link-container-2">
             <Link to="/contact-us" className="footer-link">
-              <div>contact us</div>
+              contact us
             </Link>
             <Link to="/accessibility-statement" className="footer-link">
-              <div>accessibility statement</div>
+              accessibility statement
             </Link>
           </div>
         </div>
