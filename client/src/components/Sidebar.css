@@ -1,0 +1,62 @@
+/* Ensure consistent box-sizing globally */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.sidebar-link {
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--text-color);
+  padding-top: 5%;
+  padding-bottom: 5%;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.sidebar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px; /* Consistent height */
+  background-color: var(--color-gray);
+  transition: width 0.3s ease;
+}
+
+.sidebar-link:hover {
+  color: var(--color-gray);
+}
+
+.sidebar-link:hover::after {
+  width: 100%;
+}
+
+.sidebar-link.active {
+  color: var(--color-gray);
+}
+
+.sidebar-link.active::after {
+  width: 100%;
+}
+
+/* Ensure specificity for all links, including sign out */
+.sidebar-link[href="/"],
+.sidebar-link[href="/profile"],
+.sidebar-link[href="/addalisting"],
+.sidebar-link[href="/mylistings"],
+.sidebar-link[href="/preferences"],
+.sidebar-link[href="/"] {
+  text-decoration: none; /* Ensuring no inherited styles affect the underline */
+}

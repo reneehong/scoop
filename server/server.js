@@ -27,18 +27,20 @@ const express = require("express"); // backend framework for our node server.
 const session = require("express-session"); // library that stores info about each connected user
 const mongoose = require("mongoose"); // library to connect to MongoDB
 const path = require("path"); // provide utilities for working with file and directory paths
-
+const cors = require("cors");
 const api = require("./api");
-const auth = require("./auth");
-
+const bodyParser = require("body-parser");
+const { router: authRouter, populateCurrentUser } = require("./auth.js");
+const productRoutes = require("./productRoutes.js");
 // socket stuff
 const socketManager = require("./server-socket");
 
 // Server configuration below
 // TODO change connection URL after setting up your team database
-const mongoConnectionURL = process.env.MONGO_SRV;
+const mongoConnectionURL =
+  "mongodb+srv://reneehong24:vgFlq1hIqcnfPLXO@studentwarehouse.zbt3rmt.mongodb.net/?retryWrites=true&w=majority&appName=StudentWarehouse";
 // TODO change database name to the name you chose
-const databaseName = "FILL_ME_IN";
+const databaseName = "StudentWarehouse";
 
 // mongoose 7 warning
 mongoose.set("strictQuery", false);
@@ -59,7 +61,12 @@ app.use(validator.checkRoutes);
 
 // allow us to process POST requests
 app.use(express.json());
-
+app.use(
+  cors({
+    origin: "http://localhost:5050", // Replace with your frontend's URL
+    credentials: true,
+  })
+);
 // set up a session, which will persist login data across requests
 app.use(
   session({
@@ -71,11 +78,14 @@ app.use(
 );
 
 // this checks if the user is logged in, and populates "req.user"
-app.use(auth.populateCurrentUser);
-
+app.use(populateCurrentUser);
+app.use(bodyParser.json());
+app.use("/api/products", productRoutes);
 // connect user-defined routes
+app.use("/api/auth", authRouter);
 app.use("/api", api);
 
+mongoose.set("strictQuery", false);
 // load the compiled react files, which will serve /index.html and /bundle.js
 const reactPath = path.resolve(__dirname, "..", "client", "dist");
 app.use(express.static(reactPath));

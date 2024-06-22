@@ -1,0 +1,102 @@
+.product-page {
+  display: flex;
+  justify-content: center;
+  padding: 40px; /* Increased padding for more space */
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+}
+
+.main-product {
+  display: flex;
+  max-width: 1000px; /* Increased max-width for more space */
+  width: 100%;
+  align-items: flex-start; /* Align items to the start for better spacing */
+  justify-content: flex-start; /* Move content to the left */
+  gap: 40px; /* Added gap between image and info */
+}
+
+.product-image {
+  flex: 1;
+  max-width: 50%; /* Increased width to make the image bigger */
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-info {
+  flex: 1;
+  padding: 20px;
+  max-width: 40%; /* Adjusted width for a balanced look */
+}
+
+.product-name {
+  font-size: 2rem; /* Increased font size for better readability */
+  font-weight: bold;
+  margin: 20px 0; /* Increased margin for more space */
+}
+
+.product-author {
+  font-size: 1.2rem; /* Increased font size */
+  color: #666;
+  margin: 10px 0; /* Increased margin for more space */
+}
+
+.product-price {
+  font-size: 1.4rem; /* Increased font size */
+  font-weight: bold;
+  margin: 20px 0; /* Increased margin for more space */
+}
+
+.product-condition,
+.product-size,
+.product-link {
+  font-size: 1.1rem; /* Increased font size */
+  color: #666;
+  margin: 10px 0; /* Increased margin for more space */
+}
+
+.contact-button {
+  display: block;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 15px 20px; /* Increased padding for a larger button */
+  text-align: center;
+  cursor: pointer;
+  margin-top: 30px; /* Increased margin for more space */
+  text-decoration: none;
+}
+
+.contact-button:hover {
+  background-color: #333;
+}
+
+.back-link {
+  display: block;
+  margin-top: 30px; /* Increased margin for more space */
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .main-product {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-image,
+  .product-info {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product-image {
+    margin-bottom: 20px;
+  }
+}

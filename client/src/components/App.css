@@ -1,0 +1,42 @@
+/* Define CSS variables for light mode */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --button-bg-color: #000000;
+  --button-text-color: #ffffff;
+  --color-gray: #828282;
+}
+
+/* Define CSS variables for dark mode */
+.dark-mode {
+  --bg-color: #333333;
+  --text-color: #ffffff;
+  --button-bg-color: #ffffff;
+  --button-text-color: #000000;
+}
+
+/* Apply CSS variables */
+.app-container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Preferences styles */
+.preferences-container {
+  padding: 20px;
+}
+
+/* Header styles */
+.profile-header {
+  font-size: 2rem;
+}
+
+/* Global font family */
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.page-with-sidebar {
+  display: flex;
+}

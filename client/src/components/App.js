@@ -1,23 +1,37 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
 import jwt_decode from "jwt-decode";
 
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
+import HomePage from "./pages/HomePage.js";
+import NavBar from "./NavBar.js";
+import Footer from "./Footer.js";
+import SignUp from "./pages/SignUp.js";
+import SignIn from "./pages/SignIn.js";
+import Shop from "./pages/Shop.js";
+import ProductPage from "./pages/ProductPage.js";
+import Sidebar from "./Sidebar";
+import AddAListing from "./pages/AddAListing";
+import MyListings from "./pages/MyListings";
+import Profile from "./pages/Profile.js";
+import Preferences from "./pages/Preferences.js";
 
 import "../utilities.css";
 
 import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
+import { useTheme } from "../ThemeContext.js"; // Import useTheme
+
 
 /**
  * Define the "App" component
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
-
+  const { darkMode } = useTheme(); // Get darkMode from the context
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
@@ -43,20 +57,31 @@ const App = () => {
   };
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Skeleton
-            path="/"
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-            userId={userId}
-          />
-        }
-      />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <div className={`app-container ${darkMode ? "dark-mode" : "light-mode"}`}>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/productpage" element={<ProductPage />} />
+        <Route path="/addalisting" element={<WithSidebar Component={AddAListing} />} />
+        <Route path="/mylistings" element={<WithSidebar Component={MyListings} />} />
+        <Route path="/profile" element={<WithSidebar Component={Profile} />} />
+        <Route path="/preferences" element={<WithSidebar Component={Preferences} />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </div>
+  );
+};
+
+const WithSidebar = ({ Component }) => {
+  return (
+    <div className="page-with-sidebar">
+      <Sidebar />
+      <Component />
+    </div>
   );
 };
 

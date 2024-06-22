@@ -1,0 +1,26 @@
+/* styles.css */
+.delete-button {
+    background-color: white; 
+    border: none;
+    padding: 5px;
+    border-radius: 100%; /* Rounded button */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: inline-flex; 
+    align-items: right;
+    justify-content: center;
+    transition: background-color 0.3s; /* Smooth background color change */
+  }
+  
+  .delete-button img {
+    width: 20px; /* Width of the icon */
+    height: 25px; /* Height of the icon */
+  }
+  
+  .delete-button:hover {
+    background-color: rgb(197, 193, 193); 
+  }
+  
+  .delete-button:focus {
+    outline: none; 
+  }
+  

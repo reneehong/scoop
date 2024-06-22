@@ -1,0 +1,21 @@
+/* Define common styles */
+.preferences-container {
+  padding: 20px;
+}
+
+/* Light mode styles */
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Header styles */
+.profile-header {
+  font-size: 2rem;
+}

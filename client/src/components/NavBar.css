@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 5%;
+}
+
+/* Scoop Logo */
+.navbar-logo {
+  font-style: italic;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* Join now button */
+.navbar-button {
+  color: var(--button-text-color);
+  background-color: var(--button-bg-color);
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
