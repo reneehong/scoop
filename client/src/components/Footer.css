@@ -18,7 +18,7 @@
   margin-bottom: 2%;
   white-space: nowrap;
   position: relative; /* Needed for the underline effect */
-  display: inline-block; /* Ensure links are inline-block */
+  display: inline-block; /* Ensure it doesn't stretch */
 }
 
 .footer-link::after {
@@ -56,5 +56,5 @@
 .footer-link-container-1 .footer-link,
 .footer-link-container-2 .footer-link {
   margin-right: 0; /* Reset margin-right for vertical stacking */
-  width: max-content; /* Ensure links do not stretch */
+  display: inline-block; /* Ensure it doesn't stretch */
 }
