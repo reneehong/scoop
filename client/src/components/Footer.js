@@ -19,11 +19,8 @@ const Footer = ({ handleContactUsClick }) => {
             <Link to="/termsofuse" className="footer-link">
               <div>terms of use</div>
             </Link>
-            <Link to="/privacy-policy" className="footer-link">
+            <Link to="/privacypolicy" className="footer-link">
               privacy policy
-            </Link>
-            <Link to="/terms-of-use" className="footer-link">
-              terms of use
             </Link>
           </div>
           <div className="footer-link-container-2">
