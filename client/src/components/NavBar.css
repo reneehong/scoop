@@ -16,6 +16,6 @@
   color: var(--button-text-color);
   background-color: var(--button-bg-color);
   border-radius: 5px;
-  padding: 5px;
+  padding: 15px;
   cursor: pointer;
 }
