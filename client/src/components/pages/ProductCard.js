@@ -1,22 +1,27 @@
 import React from "react";
 import "./ProductCard.css";
-import pear_picture from "../../assets/pear_picture.png"
-import DeleteButton from "./DeleteButton";
+import pear_picture from "../../assets/pear_picture.png";
+import DeleteButton from "./DeleteButton.js";
 
 //pear picture and other info should be replaced with product info
-function ProductCard ({isDeletable, onDelete}){
+function ProductCard({ product, isDeletable, onDelete }) {
+  const { name, price, description, imageBuffer, category } = product;
+  const imageSrc = imageBuffer
+    ? `data:image/jpeg;base64,${btoa(String.fromCharCode(...new Uint8Array(imageBuffer.data)))}`
+    : "";
   return (
     <div className="product-card">
-      <img src={pear_picture} alt="product" className="product-image" />
-      <p style={{fontWeight: 500}}>urban outfitters go for gold top</p>
-      <p style={{ color:  "#828282", fontWeight: 400}}>lightly worn, size XS/S</p>
-      <p style={{ color: "#828282", fontWeight: 400}}>original link:</p>
+      <img src={imageSrc} alt={name} className="product-image" />
+
+      <p style={{ fontWeight: 500 }}>{name}</p>
+      <p style={{ color: "#828282", fontWeight: 400 }}>{description}</p>
+      <p style={{ color: "#828282", fontWeight: 400 }}>original link:</p>
       <div className="inline-container">
-        <p style={{fontWeight: 500}}>$12</p>
+        <p style={{ fontWeight: 500 }}>${price}</p>
         {isDeletable && <DeleteButton onClick={onDelete} />}
       </div>
     </div>
   );
-};
+}
 
 export default ProductCard;

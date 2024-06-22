@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-logo-container">
           <Link to="/" className="footer-logo">
-            <div>scoop</div>
+            scoop
           </Link>
         </div>
         <div className="footer-link-containers">
@@ -20,12 +20,15 @@ const Footer = () => {
               <div>terms of use</div>
             </Link>
             <Link to="/privacypolicy" className="footer-link">
-              <div>privacy policy</div>
+              privacy policy
+            </Link>
+            <Link to="/terms-of-use" className="footer-link">
+              terms of use
             </Link>
           </div>
           <div className="footer-link-container-2">
             <Link to="/contact-us" className="footer-link">
-              <div>contact us</div>
+              contact us
             </Link>
             <Link to="/accessibility" className="footer-link">
               <div>accessibility statement</div>

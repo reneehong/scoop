@@ -81,7 +81,7 @@ const HomePage = () => {
       <div className="join">
         <h1>join now to start</h1>
         <h1>
-          <i>scoop</i> ing
+          <i>scoop - </i>ing
         </h1>
       </div>
     </div>

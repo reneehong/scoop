@@ -10,12 +10,21 @@
   text-decoration: none;
   color: var(--text-color);
 }
+.navbar-buttons {
+  display: flex;
+  flex-direction: row;
+}
 
+.navbar-shop {
+  text-decoration: none;
+  color: var(--text-color);
+  margin-right: 20px;
+}
 /* Join now button */
 .navbar-button {
   color: var(--button-text-color);
   background-color: var(--button-bg-color);
   border-radius: 5px;
-  padding: 5px;
+  padding: 15px;
   cursor: pointer;
 }
