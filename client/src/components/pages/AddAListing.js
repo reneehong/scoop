@@ -141,9 +141,9 @@ const AddAListing = () => {
             required
           >
             <option value="clothes">clothes</option>
-            <option value="dorm">dorm stuff</option>
-            <option value="supplies">school supplies</option>
-            <option value="care">personal care</option>
+            <option value="dorm stuff">dorm stuff</option>
+            <option value="school supplies">school supplies</option>
+            <option value="personal care">personal care</option>
             <option value="food">food</option>
             <option value="other">other</option>
           </select>

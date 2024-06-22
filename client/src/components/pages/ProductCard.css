@@ -1,13 +1,15 @@
 .inline-container {
-    display: flex;
-    align-items: center; /* Align items vertically in the center */
-  }
-  
-  .inline-container p {
-    margin-right: 80px; /* Space between the text and the button */
-  }
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.inline-container p {
+  margin-right: 80px; /* Space between the text and the button */
+}
 
 .product-card {
-    margin-top: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
 }
-  
