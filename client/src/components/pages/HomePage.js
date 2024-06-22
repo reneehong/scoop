@@ -51,30 +51,22 @@ const HomePage = () => {
         <div className="how-column">
           <h2>how it works</h2>
           <h3> four easy steps for buyers and sellers </h3>
-          <p>
-            <br />
+          <div className="how-text">
             <h4>buyers:</h4>
-            <br />
-            1. sign up with your school email
-            <br />
-            2. upload pictures and descriptions of items you want to sell & your contact information
-            (including school email)
-            <br />
-            3. respond to other students' offers & arrange method of delivery
-            <br />
-            4. remove listing once sold
-            <br />
-            <br />
+            <ol>
+              <li>sign up with your school email</li>
+              <li>upload pictures and descriptions of items you want to sell & your contact information (including school email)</li>
+              <li>respond to other students' offers & arrange method of delivery</li>
+              <li>remove listing once sold</li>
+            </ol>
             <h4>sellers:</h4>
-            <br />
-            1. sign up with your school email
-            <br />
-            2. browse items that other students posted based on headings
-            <br />
-            3. contact the individual via their contact information if interested in purchasing
-            <br />
-            4. happily use item once you've scooped it up
-          </p>
+            <ol>
+              <li>sign up with your school email</li>
+              <li>browse items that other students posted based on headings</li>
+              <li>contact the individual via their contact information if interested in purchasing</li>
+              <li>happily use item once you've scooped it up</li>
+            </ol>
+          </div>
         </div>
       </section>
 
