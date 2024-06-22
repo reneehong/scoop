@@ -1,29 +1,39 @@
 import React from "react";
 import "./ShopSection.css";
-import ProductCard from "./ProductCard";
-import waffleImage from "../../assets/wafflebackground.png";
-import Shop from "./Shop.css";
+import ProductCard from "./ProductCard.js";
 
-const ShopSection = () => {
+const ShopSection = ({ products }) => {
+  // const clothes = products.filter(product => product.category === "clothes");
+  const categories = ["clothes", "dorm stuff", "school supplies", "personal care", "food", "other"];
+
+  const renderCategorySection = (category) => {
+    const filteredProducts = products.filter((product) => product.category === category);
+    return (
+      <div key={category}>
+        <div className="type-name">
+          <h1>{category}</h1>
+        </div>
+        <div className="products-container">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product._id} product={product} isDeletable={false} />
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="shop-section">
-      <div className="type-name">
-        <h1>clothes</h1>
-      </div>
-      <div className="products-container">
-        {Array.from({ length: 2 }).map((_, index) => (
-          <ProductCard key={index} />
-        ))}
-      </div>
-      
-      <div className="type-name">
+      {categories.map((category) => renderCategorySection(category))}
+
+      {/* <div className="type-name">
         <h1>dorm stuff</h1>
       </div>
       <div className="products-container">
         {Array.from({ length: 2 }).map((_, index) => (
           <ProductCard key={index} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

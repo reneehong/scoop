@@ -10,7 +10,16 @@
   text-decoration: none;
   color: var(--text-color);
 }
+.navbar-buttons {
+  display: flex;
+  flex-direction: row;
+}
 
+.navbar-shop {
+  text-decoration: none;
+  color: var(--text-color);
+  margin-right: 20px;
+}
 /* Join now button */
 .navbar-button {
   color: var(--button-text-color);

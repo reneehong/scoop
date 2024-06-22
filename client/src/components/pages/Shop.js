@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Shop.css";
-import ProductCard from "./ProductCard";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import waffleImage from "../../assets/wafflebackground.png";
-import ShopSection from "./ShopSection";
+import ShopSection from "./ShopSection.js";
 
 const Shop = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("/api/products/all");
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <section className="Shop">
       <section className="container">
@@ -20,7 +34,7 @@ const Shop = () => {
       </section>
       <div class="shopsection">
         <br />
-        <ShopSection></ShopSection>
+        <ShopSection products={products} />
       </div>
     </section>
   );
