@@ -4,4 +4,11 @@
     padding-bottom: 5%;
   }
 
+  .my-listings{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem; 
+  }
+
  
