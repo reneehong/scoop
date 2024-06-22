@@ -5,7 +5,7 @@ const Accessibility = () => {
   return (
     <section className="container">
       <div className="accessheader">
-        <h1>Accessibility Statement</h1>
+        <strong>Accessibility Statement</strong>
       </div>
       <div className="accesstext">
         <h2>Our Commitment</h2>

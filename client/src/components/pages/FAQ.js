@@ -5,7 +5,7 @@ const FAQ = () => {
   return (
     <section className="container">
       <div className="faqheader">
-        <h1>FAQ</h1>
+        <strong>FAQ </strong>
       </div>
       <div className="faqtext">
         <h3>How do I purchase an item on Scoop?</h3>
@@ -19,8 +19,8 @@ const FAQ = () => {
         <h3>How do I sell an item on Scoop?</h3>
         <p>
           Create an account with your school email. Go to the sidebar to see add a listing, where
-          you can post your item to sell. Then, after posting, go to manage listings to see all your
-          listings. Finally, let the sellers come rolling in to scoop your item.
+          you can post your item to sell. Then, after pogit costing, go to manage listings to see
+          all your listings. Finally, let the sellers come rolling in to scoop your item.
         </p>
         <h3>How do I add my school to Scoop?</h3>
         <p>Email us at info@scoop.com and we will work to implement Scoop at your school. </p>

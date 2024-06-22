@@ -1,6 +1,6 @@
 .privacyheader {
   text-align: center;
-  height: 20%;
+  font-size: 40px;
 }
 
 .privacytext {
@@ -10,8 +10,8 @@
 
 .bullet {
   list-style-type: disc; /* Default bullet style */
-  margin: 20px 0; /* Margin above and below the list */
-  padding-left: 40px; /* Indent the list from the left */
+  margin: 20% 0; /* Margin above and below the list */
+  padding-left: 40%; /* Indent the list from the left */
 }
 .privacy h1,
 .privacy h3 {
