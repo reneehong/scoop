@@ -90,3 +90,9 @@
   width: 38%;
 }
 
+.contact-info {
+  text-align: center;  /* Center the text */
+  width: 80%;  /* Adjust the width */
+  margin: 0 auto;  /* Center the container */
+  padding-top: 2em;  /* Add some padding on top */
+}

@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../../utilities.css";
 import "./HomePage.css";
 import iceCreamImage from "../../assets/home_page_ice_cream.png";
 import testimonialImage from "../../assets/testimonials.png";
 import howImage from "../../assets/howitworks.png";
 
-const HomePage = () => {
+const HomePage = ({ contactRef, showContactInfo }) => {
+  useEffect(() => {
+    if (showContactInfo) {
+      contactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [showContactInfo, contactRef]);
+
   return (
     <div className="homepage">
       <div className="header">
@@ -78,12 +84,19 @@ const HomePage = () => {
         </div>
       </section>
 
-      <div className="join">
+      <div className="join" ref={contactRef}>
         <h1>join now to start</h1>
         <h1>
-          <i>scoop - </i>ing
+          <i>scoop</i> ing
         </h1>
       </div>
+
+      {showContactInfo && (
+        <div className="contact-info">
+          <h2>Contact Us</h2>
+          <p>You can contact us here at joel.samuel@scoop.org</p>
+        </div>
+      )}
     </div>
   );
 };

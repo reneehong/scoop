@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import jwt_decode from "jwt-decode";
@@ -35,10 +35,13 @@ import { useTheme } from "../ThemeContext.js"; // Import useTheme
 const App = () => {
   const [userId, setUserId] = useState(undefined);
   const { darkMode } = useTheme(); // Get darkMode from the context
+  const [showContactInfo, setShowContactInfo] = useState(false);
+  const contactRef = useRef(null);
+
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
-        // they are registed in the database, and currently logged in.
+        // they are registered in the database, and currently logged in.
         setUserId(user._id);
       }
     });
@@ -59,11 +62,21 @@ const App = () => {
     post("/api/logout");
   };
 
+  const handleContactUsClick = () => {
+    setShowContactInfo(prevState => !prevState);  // Toggle the state
+    if (!showContactInfo) {
+      contactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={`app-container ${darkMode ? "dark-mode" : "light-mode"}`}>
       <NavBar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={<HomePage contactRef={contactRef} showContactInfo={showContactInfo} />}
+        />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/shop" element={<Shop />} />
@@ -78,7 +91,7 @@ const App = () => {
         <Route path="/preferences" element={<WithSidebar Component={Preferences} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      <Footer handleContactUsClick={handleContactUsClick} />
     </div>
   );
 };
