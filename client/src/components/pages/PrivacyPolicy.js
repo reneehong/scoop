@@ -5,7 +5,7 @@ const PrivacyPolicy = () => {
   return (
     <section className="container">
       <div className="privacyheader">
-        <h1> Privacy Policy </h1>
+        <strong>Privacy Policy</strong>
       </div>
       <div className="privacytext">
         <h2> Introduction </h2>
@@ -66,8 +66,8 @@ const PrivacyPolicy = () => {
           </li>
         </div>
         <h2>How We Use Your Information</h2>
+        <p>We use the information we collect for the following purposes:</p>
         <div className="bullet">
-          <p>We use the information we collect for the following purposes:</p>
           <li>
             <strong>To Provide and Improve Our Services:</strong> We use your information to
             operate, maintain, and improve our website and services.

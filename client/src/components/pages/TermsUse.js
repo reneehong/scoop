@@ -6,7 +6,7 @@ const TermsUse = () => {
   return (
     <div className="container">
       <div className="termsheader">
-        <h1>Terms of Use</h1>
+        <strong>Terms of Use</strong>
       </div>
       <div className="termstext">
         <h2>Introduction</h2>
