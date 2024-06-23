@@ -71,10 +71,11 @@
 .how-column {
   flex: 1;
   padding: 1%; /* Add padding to balance spacing */
+  width: 100%;
 }
 
 .how-column:nth-child(2) {
-  flex: 0.05; /* Adjust flex to balance space between columns */
+  flex: 0.02; /* Adjust flex to balance space between columns */
 }
 
 .how-column:nth-child(3) {
@@ -82,7 +83,7 @@
   text-align: left;
   padding-left: 7%;
   padding-right: 10%;
-  max-height: 400px; /* Set a max height for the scroll box */
+  max-height: 600px; /* Set a max height for the scroll box */
   overflow-y: auto; /* Enable vertical scrolling */
 }
 
@@ -122,9 +123,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 10px;
-  width: 100%;
+  justify-content: center;
+  width: 95%;
   max-width: 1480px;
   padding-bottom: 2%;
+  padding-left: 5%;
+  padding-right: 0%;
 }
 .gallery img {
   width: 100%;
@@ -132,7 +136,13 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
+  justify-content: center;
 }
 .gallery img:hover {
   transform: scale(1.05);
+}
+
+.icecreampic {
+  transform: scale(0.7);
+  margin-top: -17%;
 }

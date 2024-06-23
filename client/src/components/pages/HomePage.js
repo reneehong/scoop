@@ -4,7 +4,7 @@ import "./HomePage.css";
 import { Link } from "react-router-dom";
 
 import testimonialImage from "../../assets/testimonials.png";
-import howImage from "../../assets/howitworks.png";
+import howImage from "../../assets/howphoto.png";
 import camera from "../../assets/camera.jpg";
 import applepen from "../../assets/applepen.jpg";
 import tubetop from "../../assets/tubetop.jpg";
@@ -13,6 +13,7 @@ import blacksweatshirt from "../../assets/blacksweatshirt.jpg";
 import candles from "../../assets/candles.jpg";
 import chocolatestrawberry from "../../assets/chocolatestrawberry.jpg";
 import humidfier from "../../assets/desktophumidfier.jpg";
+import icecream from "../../assets/icecream.png";
 
 const HomePage = ({ aboutRef, contactRef, showContactInfo }) => {
   const galleryRef = useRef(null);
@@ -131,6 +132,7 @@ const HomePage = ({ aboutRef, contactRef, showContactInfo }) => {
         <h1>
           to start <i>scoop</i> ing
         </h1>
+        <img src={icecream} alt="icecream" className="icecreampic" />
       </div>
 
       {showContactInfo && (
