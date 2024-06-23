@@ -4,17 +4,16 @@ import "./Accessibility.css";
 const Accessibility = () => {
   return (
     <section className="container">
-      <div className="accessheader">
-        <strong>Accessibility Statement</strong>
-      </div>
+      <div className="accessheader"></div>
       <div className="accesstext">
-        <h2>Our Commitment</h2>
+        <h1>Accessibility Statement</h1>
+        <h3>Our Commitment</h3>
         <p>
           Scoop is committed to ensuring digital accessibility for all users, including people with
           disabilities. We are continually improving the user experience for everyone and applying
           relevant accessibility standards.
         </p>
-        <h2>Measures to Support Accessibility</h2>
+        <h3>Measures to Support Accessibility</h3>
         <p>We take the following measures to ensure accessibility:</p>
         <div className="bullet">
           <li>
@@ -34,13 +33,13 @@ const Accessibility = () => {
             accessibility and make improvements based on the results.
           </li>
         </div>
-        <h2>Accessibility Standards</h2>
+        <h3>Accessibility Standards</h3>
         <p>
           We strive to adhere to the Web Content Accessibility Guidelines (WCAG) 2.1, aiming to meet
           or exceed Level AA standards. These guidelines help make web content more accessible for
           people with disabilities and more user-friendly for everyone.
         </p>
-        <h2>Current Accessibility Features</h2>
+        <h3>Current Accessibility Features</h3>
         <div className="bullet">
           <li>
             <strong>Alternative Text: </strong>We provide alternative text for all non-text content.
@@ -50,7 +49,7 @@ const Accessibility = () => {
             ensure readability.
           </li>
         </div>
-        <h2>Ongoing Efforts</h2>
+        <h3>Ongoing Efforts</h3>
         <p>
           {" "}
           Accessibility is an ongoing effort at Scoop. We regularly review and update our website to
@@ -61,25 +60,25 @@ const Accessibility = () => {
           <li>Seeking feedback from users on their accessibility experience.</li>
           <li>Implementing new accessibility features as they become available.</li>
         </div>
-        <h2>Feedback</h2>
+        <h3>Feedback</h3>
         <p>
           We welcome your feedback on the accessibility of Scoop. If you encounter any accessibility
           barriers, please contact us via our contact information on the homepage. We aim to respond
           to accessibility feedback within 1 month and take action to improve accessibility.
         </p>
-        <h2>Compatibility</h2>
+        <h3>Compatibility</h3>
         <p>
           Our website is designed to be compatible with the following browsers: latest versions of
           Chrome, Firefox, Safari, and Edge.
         </p>
-        <h2>Limitations and Alternatives</h2>
+        <h3>Limitations and Alternatives</h3>
         <p>
           Despite our best efforts to ensure accessibility, some content may not yet be fully
           accessible. We are continuously working to improve this. If you need assistance accessing
           any part of our website, please contact us, and we will provide you with the necessary
           support.
         </p>
-        <h2>Future Goals</h2>
+        <h3>Future Goals</h3>
         <p>
           We are committed to ongoing improvement of our accessibility features and welcome
           suggestions on how we can enhance the accessibility of our website. Our future goals
