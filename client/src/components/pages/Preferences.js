@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme } from "../../ThemeContext.js"; // Update the import path
 import "./Preferences.css";
 
-const Preferences = () => {
+const Preferences = ({ userId }) => {
   const { darkMode, toggleDarkMode } = useTheme();
 
   return (

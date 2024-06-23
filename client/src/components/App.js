@@ -39,14 +39,14 @@ const App = () => {
   const contactRef = useRef(null);
   const aboutRef = useRef(null);
 
-  useEffect(() => {
-    get("/api/whoami").then((user) => {
-      if (user._id) {
-        // they are registered in the database, and currently logged in.
-        setUserId(user._id);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   get("/api/whoami").then((user) => {
+  //     if (userId != undefined) {
+  //       // they are registered in the database, and currently logged in.
+  //       console.log("user", user._id);
+  //     }
+  //   });
+  // }, [userId]);
 
   const handleLogin = (credentialResponse) => {
     const userToken = credentialResponse.credential;
@@ -80,20 +80,36 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<HomePage aboutRef={aboutRef} contactRef={contactRef} showContactInfo={showContactInfo} />}
+          element={
+            <HomePage
+              aboutRef={aboutRef}
+              contactRef={contactRef}
+              showContactInfo={showContactInfo}
+            />
+          }
         />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp userId={userId} setUserId={setUserId} />} />
+        <Route path="/signin" element={<SignIn setUserId={setUserId} />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/productpage" element={<ProductPage />} />
         <Route path="/termsofuse" element={<TermsUse />} />
         <Route path="/Accessibility" element={<Accessibility />} />
         <Route path="/FAQ" element={<FAQ />} />
-        <Route path="/addalisting" element={<WithSidebar Component={AddAListing} />} />
-        <Route path="/mylistings" element={<WithSidebar Component={MyListings} />} />
-        <Route path="/profile" element={<WithSidebar Component={Profile} />} />
-        <Route path="/preferences" element={<WithSidebar Component={Preferences} />} />
+        <Route
+          path="/addalisting"
+          element={<WithSidebar Component={AddAListing} userId={userId} />}
+        />
+        <Route
+          path="/mylistings"
+          element={<WithSidebar Component={MyListings} userId={userId} />}
+        />
+        <Route path="/profile" element={<WithSidebar Component={Profile} userId={userId} />} />
+        <Route
+          path="/preferences"
+          element={<WithSidebar Component={Preferences} userId={userId} />}
+          userId={userId}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer handleContactUsClick={handleContactUsClick} handleAboutClick={handleAboutClick} />
@@ -101,11 +117,11 @@ const App = () => {
   );
 };
 
-const WithSidebar = ({ Component }) => {
+const WithSidebar = ({ Component, userId }) => {
   return (
     <div className="page-with-sidebar">
       <Sidebar />
-      <Component />
+      <Component userId={userId} />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./AddAListing.css";
 
-const AddAListing = () => {
+const AddAListing = ({ userId }) => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -32,7 +32,7 @@ const AddAListing = () => {
     data.append("link", formData.link);
     data.append("category", formData.category);
     data.append("imageFile", imageFile);
-    
+
     try {
       const response = await axios.post("http://localhost:3000/api/products/create", data, {
         headers: {

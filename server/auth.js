@@ -17,7 +17,7 @@ router.post("/signup", async (req, res) => {
     await user.save();
     req.session.user = user;
 
-    res.status(201).send({ message: "User created successfully" });
+    res.status(201).send({ message: "User created successfully", user });
   } catch (error) {
     res.status(400).send({ error: error.message });
   }
@@ -39,7 +39,7 @@ router.post("/signin", async (req, res) => {
       return res.status(400).send({ error: "Invalid email, password, or college" });
     }
     req.session.user = user; // Store user info in session
-    res.send({ message: "Logged in successfully" });
+    res.send({ message: "Logged in successfully", user });
   } catch (error) {
     res.status(400).send({ error: error.message });
   }

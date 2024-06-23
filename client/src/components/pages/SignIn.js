@@ -5,7 +5,7 @@ import GirlEatingIceCream from "../../assets/girl_eating_icecream.png"; // Ensur
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const SignIn = () => {
+const SignIn = ({ setUserId }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -25,6 +25,8 @@ const SignIn = () => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:3000/api/auth/signin", formData);
+      console.log(response.data.user._id);
+      setUserId(response.data.user._id);
       signin();
       navigate("/shop");
     } catch (error) {

@@ -1,34 +1,35 @@
 import React, { useState } from "react";
 import "./Profile.css";
+import axios from "axios";
 
-const Profile = () => {
-  const [name, setName] = useState("renee hong");
+const Profile = ({ userId }) => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic
-    console.log("Form submitted", { name, currentPassword, newPassword });
+    console.log("Form submitted", { userId, currentPassword, newPassword });
+    const formData = {
+      _id: userId,
+      currentPassword,
+      newPassword,
+    };
+    try {
+      const response = await axios.post("http://localhost:3000/api/updatepassword", formData);
+      console.log(response.data.user._id);
+    } catch (error) {
+      if (error.response && error.response.data) {
+        alert(error.response.data.error);
+      }
+    }
+    console.log(formData);
   };
 
   return (
     <div className="profile-container">
       <div className="profile-header">my profile</div>
       <form className="profile-form" onSubmit={handleSubmit}>
-        <div className="profile-input">
-          <label>
-            my name
-            <br />
-            <input
-              type="text"
-              value={name}
-              className="input"
-              onChange={(e) => setName(e.target.value)}
-            />
-          </label>
-        </div>
-
         <br />
         <div className="profile-input">
           <label>
@@ -63,5 +64,4 @@ const Profile = () => {
     </div>
   );
 };
-
 export default Profile;
