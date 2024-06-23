@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ProductPage = () => {
   const location = useLocation();
-  const { name, price, imageSrc } = location.state || {};
+  const { name, price, description, link, imageSrc } = location.state || {};
   if (!name || !price || !imageSrc) {
     return <div>Product not found</div>; // Handle case where no product is passed
   }
@@ -14,13 +14,12 @@ const ProductPage = () => {
       <div className="main-product">
         <img src={imageSrc} alt={name} className="product-image" />
         <div className="product-info">
-          <h1 className="product-name">{name}</h1>
-          <p className="product-author">Fiona Chen</p>
-          <p className="product-price">{price}</p>
-          <p className="product-condition">description</p>
-          <p className="product-size">Size: XS/S</p>
+          <h1 className="product-name">product: {name}</h1>
+          <p className="product-author">seller: Fiona Chen</p>
+          <p className="product-price">price: {price}</p>
+          <p className="product-condition">description: {description}</p>
           <p className="product-link">
-            Original link: <a href="https://tinyurl.com/rhnyn4s7">https://tinyurl.com/rhnyn4s7</a>
+            original link: <a href={link}>{link}</a>
           </p>
           <a href="mailto:fionachen@mit.edu" className="contact-button">
             Contact fionachen@mit.edu to scoop!

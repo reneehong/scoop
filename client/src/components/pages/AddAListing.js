@@ -6,8 +6,8 @@ const AddAListing = () => {
   const [formData, setFormData] = useState({
     name: "",
     price: "",
-    // description: "",
-    // link: "",
+    description: "",
+    link: "",
     category: "clothes",
   });
   const [imageFile, setImageFile] = useState(null);
@@ -27,6 +27,8 @@ const AddAListing = () => {
     const data = new FormData();
     data.append("name", formData.name);
     data.append("price", formData.price);
+    data.append("description", formData.description);
+    data.append("link", formData.link);
     data.append("category", formData.category);
     data.append("imageFile", imageFile);
 
@@ -80,40 +82,15 @@ const AddAListing = () => {
           <br />
           <br />
         </label>
-        {/* <label className="profile-input">
-          how to contact you
-          <br />
-          <input
-            className="input"
-            type="text"
-            
-            name="contactInfo"
-            placeholder="email, phone number"
-          />
-          <br />
-          <br />
-        </label> */}
         <label className="profile-input">
-          insert photo here
-          <br />
-          <input
-            className="input"
-            type="file"
-            onChange={handleFileChange}
-            id="photo"
-            name="imageFile"
-            required
-          />
-          <br />
-          <br />
-        </label>
-        {/* <label className="profile-input">
           what do you want to tell your buyers?
           <br />
           <textarea
             className="input"
             name="description"
             placeholder="ex. material, quality, use/wear"
+            onChange={handleChange}
+            value={formData.description}
           ></textarea>
           <br />
           <br />
@@ -124,8 +101,23 @@ const AddAListing = () => {
           <input
             className="input"
             type="text"
-            name="originalLink"
+            name="link"
+            onChange={handleChange}
+            value={formData.link}
             placeholder="urbanoutfitters.com"
+          />
+          <br />
+          <br />
+        </label>
+        {/* <label className="profile-input">
+          how to contact you
+          <br />
+          <input
+            className="input"
+            type="text"
+            
+            name="contactInfo"
+            placeholder="email, phone number"
           />
           <br />
           <br />
@@ -148,6 +140,21 @@ const AddAListing = () => {
             <option value="other">other</option>
           </select>
         </label>
+        <label className="profile-input">
+          insert photo here
+          <br />
+          <input
+            className="input"
+            type="file"
+            onChange={handleFileChange}
+            id="photo"
+            name="imageFile"
+            required
+          />
+          <br />
+          <br />
+        </label>
+
         <br />
         <button className="button" type="submit">
           Submit
