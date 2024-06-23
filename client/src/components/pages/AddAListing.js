@@ -3,6 +3,7 @@ import axios from "axios";
 import "./AddAListing.css";
 
 const AddAListing = () => {
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -31,7 +32,7 @@ const AddAListing = () => {
     data.append("link", formData.link);
     data.append("category", formData.category);
     data.append("imageFile", imageFile);
-
+    
     try {
       const response = await axios.post("http://localhost:3000/api/products/create", data, {
         headers: {
@@ -39,6 +40,7 @@ const AddAListing = () => {
         },
       });
       alert("Product created successfully");
+      setShowSuccess(true);
     } catch (error) {
       alert("Error creating product");
       console.error("There was an error creating the product!", error);
@@ -139,6 +141,7 @@ const AddAListing = () => {
             <option value="food">food</option>
             <option value="other">other</option>
           </select>
+          <br />
         </label>
         <label className="profile-input">
           insert photo here
@@ -154,13 +157,12 @@ const AddAListing = () => {
           <br />
           <br />
         </label>
-
         <br />
         <button className="button" type="submit">
           Submit
         </button>
       </form>
-      <p>thank you for adding to the waffle shop!</p>
+      {showSuccess && <p className="success-message"> thanks for adding to the waffle shop!</p>}
     </div>
   );
 };
