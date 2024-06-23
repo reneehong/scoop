@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MyListings.css";
 import ProductCard from "./ProductCard";
 import pear_picture from "../../assets/pear_picture.png";
@@ -9,14 +9,26 @@ const tempProduct = {
   description: "This is a placeholder",
   imageBuffer: pear_picture,
 };
-const MyListings = ({ userId }) => {
+const MyListings = () => {
+  const [isComponentVisible, setIsComponentVisible] = useState(true);
+  const handleDelete = () => {
+    setIsComponentVisible(false);
+  };
   return (
     <div className="profile-container">
       <div className="profile-header">my listings</div>
       <div className="my-listings">
-        {Array.from({ length: 5 }).map((_, index) => (
-          <ProductCard product={tempProduct} key={index} isDeletable={true} />
-        ))}
+        {Array.from({ length: 1 }).map(
+          (_, index) =>
+            isComponentVisible && (
+              <ProductCard
+                product={tempProduct}
+                key={index}
+                isDeletable={true}
+                onDelete={handleDelete}
+              />
+            )
+        )}
       </div>
     </div>
   );

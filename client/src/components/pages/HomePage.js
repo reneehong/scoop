@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "../../utilities.css";
 import "./HomePage.css";
+import { Link } from "react-router-dom";
+
 import iceCreamImage from "../../assets/home_page_ice_cream.png";
 import testimonialImage from "../../assets/testimonials.png";
 import howImage from "../../assets/howitworks.png";
@@ -85,9 +87,16 @@ const HomePage = ({ aboutRef, contactRef, showContactInfo }) => {
       </section>
 
       <div className="join" ref={contactRef}>
-        <h1>join now to start</h1>
+        {/* <div className="navbar-buttons">
+          <Link to="/signup">
+            <button className="navbar-button"> "Join Now"</button>
+          </Link>
+        </div> */}
+        <Link to="/signup">
+          <button className="join-button" style={{ fontSize: "28px" }}> join now</button>
+        </Link>
         <h1>
-          <i>scoop</i> ing
+          to start <i> scoop</i> ing
         </h1>
       </div>
 
