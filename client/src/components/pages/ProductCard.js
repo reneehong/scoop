@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import "./ProductCard.css";
 import axios from "axios";
 import DeleteButton from "./DeleteButton.js";
