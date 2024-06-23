@@ -7,13 +7,13 @@ const upload = multer({ storage: storage });
 
 router.post("/create", upload.single("imageFile"), async (req, res) => {
   try {
-    const { name, price, category } = req.body;
+    const { name, price, description, link, category } = req.body;
     const imageBuffer = req.file ? req.file.buffer : null;
     if (!name || !price || !category || !imageBuffer) {
       return res.status(400).send({ error: "Name, price, category are required" });
     }
 
-    const newProduct = new Product({ name, price, category, imageBuffer });
+    const newProduct = new Product({ name, price, description, link, category, imageBuffer });
     await newProduct.save();
 
     res.status(201).send({ message: "Product created successfully", product: newProduct });
