@@ -23,11 +23,8 @@ const Footer = ({ handleContactUsClick, handleAboutClick }) => {
             >
               about scoop
             </Link>
-            <Link to="/privacy-policy" className="footer-link">
+            <Link to="/privacypolicy" className="footer-link">
               privacy policy
-            </Link>
-            <Link to="/terms-of-use" className="footer-link">
-              terms of use
             </Link>
           </div>
           <div className="footer-link-container-2">
@@ -41,8 +38,11 @@ const Footer = ({ handleContactUsClick, handleAboutClick }) => {
             >
               contact us
             </Link>
-            <Link to="/accessibility-statement" className="footer-link">
-              accessibility statement
+            <Link to="/accessibility" className="footer-link">
+              <div>accessibility statement</div>
+            </Link>
+            <Link to="/faq" className="footer-link">
+              <div>faq</div>
             </Link>
           </div>
         </div>

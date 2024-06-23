@@ -17,7 +17,10 @@ import AddAListing from "./pages/AddAListing";
 import MyListings from "./pages/MyListings";
 import Profile from "./pages/Profile.js";
 import Preferences from "./pages/Preferences.js";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy.js";
+import TermsUse from "./pages/TermsUse.js";
+import Accessibility from "./pages/Accessibility.js";
+import FAQ from "./pages/FAQ.js";
 
 import "../utilities.css";
 
@@ -84,6 +87,9 @@ const App = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/productpage" element={<ProductPage />} />
+        <Route path="/termsofuse" element={<TermsUse />} />
+        <Route path="/Accessibility" element={<Accessibility />} />
+        <Route path="/FAQ" element={<FAQ />} />
         <Route path="/addalisting" element={<WithSidebar Component={AddAListing} />} />
         <Route path="/mylistings" element={<WithSidebar Component={MyListings} />} />
         <Route path="/profile" element={<WithSidebar Component={Profile} />} />
