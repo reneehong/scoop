@@ -6,7 +6,7 @@ const FAQ = () => {
     <section className="container">
       <div className="faqheader"></div>
       <div className="faqtext">
-        <h1> FAQ </h1>
+        <h1>FAQ </h1>
         <h3>How do I purchase an item on Scoop?</h3>
         <p>
           Create an account with your school email. Scroll through your school’s page to see what

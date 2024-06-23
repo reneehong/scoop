@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
     <section className="container">
       <div className="privacyheader"></div>
       <div className="privacytext">
-        <h1>Privacy Policy </h1>
+        <h1>Privacy Policy</h1>
         <h3> Introduction </h3>
         <p>
           Welcome to Scoop. We are committed to protecting your personal information and your right
