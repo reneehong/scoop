@@ -1,11 +1,18 @@
 .accessheader {
+  display: flex;
   text-align: center;
-  font-size: 40px;
+  justify-content: center;
 }
 
 .accesstext {
   padding-left: 20%;
   padding-right: 20%;
+  font-size: larger;
+}
+
+.line-break {
+  display: block;
+  margin-top: 20px;
 }
 
 .bullet {

@@ -7,7 +7,8 @@ const tempProduct = {
   name: "Placeholder",
   price: "12",
   description: "This is a placeholder",
-  imageBuffer: pear_picture,
+  imageBuffer: null,
+  image: pear_picture,
 };
 const MyListings = () => {
   const [isComponentVisible, setIsComponentVisible] = useState(true);
