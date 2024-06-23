@@ -2,7 +2,7 @@
 .shop-section {
   display: flex;
   flex-direction: column;
-  padding: 5%;
+  padding: 3%;
   gap: 1rem; /* Adjust spacing between divs using relative units */
 }
 
@@ -15,6 +15,6 @@
 
 .type-name {
   padding: 1rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-left: 2rem;
 }

@@ -38,7 +38,7 @@ const socketManager = require("./server-socket");
 // Server configuration below
 // TODO change connection URL after setting up your team database
 const mongoConnectionURL =
-  "mongodb+srv://kathz:4UNRojNycpNKuGs2@studentwarehouse.zbt3rmt.mongodb.net/?retryWrites=true&w=majority&appName=StudentWarehouse";
+  "mongodb+srv://ryanwu365:6xEdF2YduBG9KHzt@studentwarehouse.zbt3rmt.mongodb.net/?retryWrites=true&w=majority&appName=StudentWarehouse";
 // TODO change database name to the name you chose
 const databaseName = "StudentWarehouse";
 
