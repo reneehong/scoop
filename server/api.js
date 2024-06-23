@@ -74,7 +74,6 @@ router.get("/mode/:id", async (req, res) => {
   }
 });
 
-// Update the mode for the user
 router.post("/mode", async (req, res) => {
   try {
     const { _id, mode } = req.body;

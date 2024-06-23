@@ -31,6 +31,7 @@ const AddAListing = ({ userId }) => {
     data.append("description", formData.description);
     data.append("link", formData.link);
     data.append("category", formData.category);
+    data.append("userId", userId);
     data.append("imageFile", imageFile);
 
     try {

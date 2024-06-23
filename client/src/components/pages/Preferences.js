@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useTheme } from "../../ThemeContext.js"; // Update the import path
+import { useTheme } from "../../ThemeContext.js";
 import "./Preferences.css";
 import axios from "axios";
 
@@ -12,11 +12,10 @@ const Preferences = ({ userId }) => {
       try {
         const response = await axios.get(`http://localhost:3000/api/mode/${userId}`);
         const userMode = response.data.mode;
-        console.log("Fetched user mode:", userMode); // Debug log
+        console.log("Fetched user mode:", userMode);
 
-        // Only toggle the mode if it is different from the current context mode
         if (userMode !== darkMode) {
-          toggleDarkMode(); // This will toggle the mode to match the user's mode
+          toggleDarkMode();
         }
         setLoading(false);
       } catch (error) {
@@ -31,9 +30,9 @@ const Preferences = ({ userId }) => {
   const handleToggleDarkMode = async () => {
     const newMode = !darkMode;
     try {
-      console.log("Toggling mode to:", newMode); // Debug log
+      console.log("Toggling mode to:", newMode);
       await axios.post("http://localhost:3000/api/mode", { _id: userId, mode: newMode });
-      toggleDarkMode(); // This will toggle the mode in the context
+      toggleDarkMode();
     } catch (error) {
       console.error("Error updating user mode:", error);
     }

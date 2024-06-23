@@ -12,9 +12,12 @@ function ProductCard({ product, isDeletable, onDelete }) {
     setIsDeleteClicked(true);
     onDelete();
   };
-  const imageSrc = imageBuffer != null ? (imageBuffer
-    ? `data:image/jpeg;base64,${btoa(String.fromCharCode(...new Uint8Array(imageBuffer.data)))}`
-    : "") : image;
+  const imageSrc =
+    imageBuffer != null
+      ? imageBuffer
+        ? `data:image/jpeg;base64,${btoa(String.fromCharCode(...new Uint8Array(imageBuffer.data)))}`
+        : ""
+      : image;
   return (
     console.log(name, price, category, imageSrc),
     isDeletable ? (
@@ -36,9 +39,15 @@ function ProductCard({ product, isDeletable, onDelete }) {
       >
         <div className="product-card">
           <img src={imageSrc} alt={name} className="product-image" />
-          <p className="product-attributes" style={{ fontWeight: 500 }}>product: {name}</p>
-          <p className="product-attributes" style={{ color: "#828282", fontWeight: 400 }}>description: {description}</p>
-          <p className="product-attributes" style={{ color: "#828282", fontWeight: 400 }}>original link: {link}</p>
+          <p className="product-attributes" style={{ fontWeight: 500 }}>
+            product: {name}
+          </p>
+          <p className="product-attributes" style={{ color: "#828282", fontWeight: 400 }}>
+            description: {description}
+          </p>
+          <p className="product-attributes" style={{ color: "#828282", fontWeight: 400 }}>
+            original link: {link}
+          </p>
           <div className="inline-container">
             <p style={{ fontWeight: 500 }}>price: ${price}</p>
             {isDeletable && <DeleteButton className="delete-button" onClick={onDelete} />}

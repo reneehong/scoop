@@ -38,7 +38,7 @@ router.post("/signin", async (req, res) => {
     if (user.college !== college) {
       return res.status(400).send({ error: "Invalid email, password, or college" });
     }
-    req.session.user = user; // Store user info in session
+    req.session.user = user;
     res.send({ message: "Logged in successfully", user });
   } catch (error) {
     res.status(400).send({ error: error.message });

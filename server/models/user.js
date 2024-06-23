@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   college: { type: String, required: true, unique: false },
   password: { type: String, required: true, unique: false },
   mode: { type: Boolean, required: false, unique: false },
+  products: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
 });
 
 //hashes user's password before storing user data in database
