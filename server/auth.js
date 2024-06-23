@@ -13,7 +13,7 @@ router.post("/signup", async (req, res) => {
     if (existingUser) {
       return res.status(400).send({ error: "Email is already in use" });
     }
-    const user = new User({ firstName, lastName, email, password, college });
+    const user = new User({ firstName, lastName, email, password, college, mode: false });
     await user.save();
     req.session.user = user;
 

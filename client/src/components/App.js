@@ -21,7 +21,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy.js";
 import TermsUse from "./pages/TermsUse.js";
 import Accessibility from "./pages/Accessibility.js";
 import FAQ from "./pages/FAQ.js";
-
+import axios from "axios";
 import "../utilities.css";
 
 import { socket } from "../client-socket.js";
@@ -34,19 +34,22 @@ import { useTheme } from "../ThemeContext.js"; // Import useTheme
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
-  const { darkMode } = useTheme(); // Get darkMode from the context
+  const { darkMode, toggleDarkMode } = useTheme(); // Get darkMode from the context
   const [showContactInfo, setShowContactInfo] = useState(false);
   const contactRef = useRef(null);
   const aboutRef = useRef(null);
 
-  // useEffect(() => {
-  //   get("/api/whoami").then((user) => {
-  //     if (userId != undefined) {
-  //       // they are registered in the database, and currently logged in.
-  //       console.log("user", user._id);
-  //     }
-  //   });
-  // }, [userId]);
+  const fetchUserMode = async (id) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/api/mode/${id}`);
+      const userMode = response.data.mode;
+      if (userMode !== darkMode) {
+        toggleDarkMode();
+      }
+    } catch (error) {
+      console.error("Error fetching user mode:", error);
+    }
+  };
 
   const handleLogin = (credentialResponse) => {
     const userToken = credentialResponse.credential;
@@ -88,8 +91,14 @@ const App = () => {
             />
           }
         />
-        <Route path="/signup" element={<SignUp userId={userId} setUserId={setUserId} />} />
-        <Route path="/signin" element={<SignIn setUserId={setUserId} />} />
+        <Route
+          path="/signup"
+          element={<SignUp setUserId={setUserId} fetchUserMode={fetchUserMode} />}
+        />
+        <Route
+          path="/signin"
+          element={<SignIn setUserId={setUserId} fetchUserMode={fetchUserMode} />}
+        />
         <Route path="/shop" element={<Shop />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/productpage" element={<ProductPage />} />
@@ -107,7 +116,14 @@ const App = () => {
         <Route path="/profile" element={<WithSidebar Component={Profile} userId={userId} />} />
         <Route
           path="/preferences"
-          element={<WithSidebar Component={Preferences} userId={userId} />}
+          element={
+            <WithSidebar
+              Component={Preferences}
+              userId={userId}
+              darkMode={darkMode}
+              toggleDarkMode={toggleDarkMode}
+            />
+          }
           userId={userId}
         />
         <Route path="*" element={<NotFound />} />

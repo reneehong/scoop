@@ -61,6 +61,37 @@ router.post("/updatepassword", async (req, res) => {
     res.status(500).send({ error: "Internal server error" });
   }
 });
+
+router.get("/mode/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    res.send({ mode: user.mode });
+  } catch (error) {
+    res.status(500).send({ error: "Internal server error" });
+  }
+});
+
+// Update the mode for the user
+router.post("/mode", async (req, res) => {
+  try {
+    const { _id, mode } = req.body;
+
+    const user = await User.findById(_id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+
+    user.mode = mode;
+    await user.save();
+
+    res.send({ message: "Mode updated successfully" });
+  } catch (error) {
+    res.status(500).send({ error: "Internal server error" });
+  }
+});
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
