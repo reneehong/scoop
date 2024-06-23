@@ -34,6 +34,7 @@ const App = () => {
   const { darkMode } = useTheme(); // Get darkMode from the context
   const [showContactInfo, setShowContactInfo] = useState(false);
   const contactRef = useRef(null);
+  const aboutRef = useRef(null);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -60,10 +61,14 @@ const App = () => {
   };
 
   const handleContactUsClick = () => {
-    setShowContactInfo(prevState => !prevState);  // Toggle the state
+    setShowContactInfo((prevState) => !prevState); // Toggle the state
     if (!showContactInfo) {
       contactRef.current.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleAboutClick = () => {
+    aboutRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -72,7 +77,7 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<HomePage contactRef={contactRef} showContactInfo={showContactInfo} />}
+          element={<HomePage aboutRef={aboutRef} contactRef={contactRef} showContactInfo={showContactInfo} />}
         />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
@@ -85,7 +90,7 @@ const App = () => {
         <Route path="/preferences" element={<WithSidebar Component={Preferences} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer handleContactUsClick={handleContactUsClick} />
+      <Footer handleContactUsClick={handleContactUsClick} handleAboutClick={handleAboutClick} />
     </div>
   );
 };

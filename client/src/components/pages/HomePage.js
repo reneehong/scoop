@@ -1,13 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import "../../utilities.css";
 import "./HomePage.css";
 import iceCreamImage from "../../assets/home_page_ice_cream.png";
 import testimonialImage from "../../assets/testimonials.png";
 import howImage from "../../assets/howitworks.png";
 
-const HomePage = ({ contactRef, showContactInfo }) => {
+const HomePage = ({ aboutRef, contactRef, showContactInfo }) => {
   useEffect(() => {
-    if (showContactInfo) {
+    if (showContactInfo && contactRef.current) {
       contactRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [showContactInfo, contactRef]);
@@ -29,7 +29,7 @@ const HomePage = ({ contactRef, showContactInfo }) => {
         <img src={iceCreamImage} alt="Ice Cream Scoop" className="main-image" />
       </div>
 
-      <div className="about">
+      <div className="about" ref={aboutRef}>
         <h2>
           about <i>scoop</i>
         </h2>

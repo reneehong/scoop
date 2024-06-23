@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
-const Footer = ({ handleContactUsClick }) => {
+const Footer = ({ handleContactUsClick, handleAboutClick }) => {
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -13,7 +13,14 @@ const Footer = ({ handleContactUsClick }) => {
         </div>
         <div className="footer-link-containers">
           <div className="footer-link-container-1">
-            <Link to="/" className="footer-link">
+            <Link
+              to="#"
+              className="footer-link"
+              onClick={(e) => {
+                e.preventDefault();
+                handleAboutClick();
+              }}
+            >
               about scoop
             </Link>
             <Link to="/privacy-policy" className="footer-link">
