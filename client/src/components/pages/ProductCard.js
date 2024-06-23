@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import React, { useState, useEffect } from "react";
 import "./ProductCard.css";
-import axios from "axios";
 import axios from "axios";
 import DeleteButton from "./DeleteButton.js";
 import { Link } from "react-router-dom";
