@@ -24,7 +24,7 @@ const Shop = () => {
     <section className="Shop">
       <section className="container">
         <img src={waffleImage} alt="waffle" className="img" />
-        <div class="overlay-text">
+        <div className="overlay-text">
           <h1>the waffle shop</h1>
           <p>have any goods you want to sell to your friends on campus for cheap?</p>
           <Link to="/addalisting">
@@ -32,7 +32,7 @@ const Shop = () => {
           </Link>
         </div>
       </section>
-      <div class="shopsection">
+      <div className="shopsection">
         <br />
         <ShopSection products={products} />
       </div>

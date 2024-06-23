@@ -16,7 +16,7 @@ const { router: authRouter, populateCurrentUser } = require("./auth");
 
 // api endpoints: all these paths will be prefixed with "/api/"
 const router = express.Router();
-
+const bcrypt = require("bcryptjs");
 //initialize socket
 const socketManager = require("./server-socket");
 
@@ -39,11 +39,91 @@ router.post("/initsocket", (req, res) => {
   res.send({});
 });
 
+router.post("/updatepassword", async (req, res) => {
+  try {
+    const { _id, currentPassword, newPassword } = req.body;
+
+    const user = await User.findOne({ _id });
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+
+    const isPasswordMatch = await bcrypt.compare(currentPassword, user.password);
+    if (!isPasswordMatch) {
+      return res.status(400).send({ error: "Incorrect current password" });
+    }
+
+    user.password = newPassword;
+    await user.save();
+
+    res.send({ message: "Password updated successfully" });
+  } catch (error) {
+    res.status(500).send({ error: "Internal server error" });
+  }
+});
+
+router.get("/mode/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    res.send({ mode: user.mode });
+  } catch (error) {
+    res.status(500).send({ error: "Internal server error" });
+  }
+});
+
+router.get("/user/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    res.send({ firstName: user.firstName, lastName: user.lastName, email: user.email });
+  } catch (error) {
+    res.status(500).send({ error: "Internal server error" });
+  }
+});
+
+router.post("/mode", async (req, res) => {
+  try {
+    const { _id, mode } = req.body;
+
+    const user = await User.findById(_id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+
+    user.mode = mode;
+    await user.save();
+
+    res.send({ message: "Mode updated successfully" });
+  } catch (error) {
+    res.status(500).send({ error: "Internal server error" });
+  }
+});
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
 
 // anything else falls to this "not found" case
+
+router.get("/findById/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+
+    res.send({ name: user.name });
+  } catch (error) {
+    res.status(500).send({ error: "Internal server error" });
+  }
+});
+
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });

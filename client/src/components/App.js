@@ -21,7 +21,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy.js";
 import TermsUse from "./pages/TermsUse.js";
 import Accessibility from "./pages/Accessibility.js";
 import FAQ from "./pages/FAQ.js";
-
+import axios from "axios";
 import "../utilities.css";
 
 import { socket } from "../client-socket.js";
@@ -34,19 +34,22 @@ import { useTheme } from "../ThemeContext.js"; // Import useTheme
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
-  const { darkMode } = useTheme(); // Get darkMode from the context
+  const { darkMode, toggleDarkMode } = useTheme(); // Get darkMode from the context
   const [showContactInfo, setShowContactInfo] = useState(false);
   const contactRef = useRef(null);
   const aboutRef = useRef(null);
 
-  useEffect(() => {
-    get("/api/whoami").then((user) => {
-      if (user._id) {
-        // they are registered in the database, and currently logged in.
-        setUserId(user._id);
+  const fetchUserMode = async (id) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/api/mode/${id}`);
+      const userMode = response.data.mode;
+      if (userMode !== darkMode) {
+        toggleDarkMode();
       }
-    });
-  }, []);
+    } catch (error) {
+      console.error("Error fetching user mode:", error);
+    }
+  };
 
   const handleLogin = (credentialResponse) => {
     const userToken = credentialResponse.credential;
@@ -80,20 +83,49 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<HomePage aboutRef={aboutRef} contactRef={contactRef} showContactInfo={showContactInfo} />}
+          element={
+            <HomePage
+              aboutRef={aboutRef}
+              contactRef={contactRef}
+              showContactInfo={showContactInfo}
+            />
+          }
         />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route
+          path="/signup"
+          element={<SignUp setUserId={setUserId} fetchUserMode={fetchUserMode} />}
+        />
+        <Route
+          path="/signin"
+          element={<SignIn setUserId={setUserId} fetchUserMode={fetchUserMode} />}
+        />
         <Route path="/shop" element={<Shop />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/productpage" element={<ProductPage />} />
         <Route path="/termsofuse" element={<TermsUse />} />
         <Route path="/Accessibility" element={<Accessibility />} />
         <Route path="/FAQ" element={<FAQ />} />
-        <Route path="/addalisting" element={<WithSidebar Component={AddAListing} />} />
-        <Route path="/mylistings" element={<WithSidebar Component={MyListings} />} />
-        <Route path="/profile" element={<WithSidebar Component={Profile} />} />
-        <Route path="/preferences" element={<WithSidebar Component={Preferences} />} />
+        <Route
+          path="/addalisting"
+          element={<WithSidebar Component={AddAListing} userId={userId} />}
+        />
+        <Route
+          path="/mylistings"
+          element={<WithSidebar Component={MyListings} userId={userId} />}
+        />
+        <Route path="/profile" element={<WithSidebar Component={Profile} userId={userId} />} />
+        <Route
+          path="/preferences"
+          element={
+            <WithSidebar
+              Component={Preferences}
+              userId={userId}
+              darkMode={darkMode}
+              toggleDarkMode={toggleDarkMode}
+            />
+          }
+          userId={userId}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer handleContactUsClick={handleContactUsClick} handleAboutClick={handleAboutClick} />
@@ -101,11 +133,11 @@ const App = () => {
   );
 };
 
-const WithSidebar = ({ Component }) => {
+const WithSidebar = ({ Component, userId }) => {
   return (
     <div className="page-with-sidebar">
       <Sidebar />
-      <Component />
+      <Component userId={userId} />
     </div>
   );
 };

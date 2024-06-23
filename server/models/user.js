@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
   preferredContact: { type: String, required: false, unique: false },
   college: { type: String, required: true, unique: false },
   password: { type: String, required: true, unique: false },
-  mode: { type: String, required: false, unique: false },
+  mode: { type: Boolean, required: false, unique: false },
+  products: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
 });
 
 //hashes user's password before storing user data in database

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { post } from "../../utilities";
 import { useAuth } from "../../context/AuthContext.js";
 import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import GirlEatingIceCream from "../../assets/girl_eating_icecream.png";
 import axios from "axios";
 
-const SignUp = () => {
+const SignUp = ({ setUserId, fetchUserMode }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -28,6 +29,9 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:3000/api/auth/signup", formData);
+      setUserId(response.data.user._id);
+      fetchUserMode(response.data.user._id);
+      console.log(response.data.user._id);
       signup();
       navigate("/shop");
     } catch (error) {

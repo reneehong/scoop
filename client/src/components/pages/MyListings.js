@@ -1,26 +1,75 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import "./MyListings.css";
+import axios from "axios";
 import ProductCard from "./ProductCard";
-import pear_picture from "../../assets/pear_picture.png";
 
-const tempProduct = {name:"Placeholder", price:"12", description:"This is a placeholder", imageBuffer: null, image: pear_picture};
-const MyListings = () => {
-  const [isComponentVisible, setIsComponentVisible] = useState(true);
-  const handleDelete = () => {
-    setIsComponentVisible(false);
+const MyListings = ({ userId }) => {
+  const [myProducts, setMyProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchMyProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/products/all");
+        const allProducts = response.data;
+        const filteredProducts = allProducts.filter((product) => product.userId === userId);
+        setMyProducts(filteredProducts);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+    fetchMyProducts();
+  }, [userId]);
+
+  const handleDelete = async (productId) => {
+    try {
+      await axios.delete(`http://localhost:3000/api/products/${productId}`);
+      setMyProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
   };
+
   return (
-    <div className="profile-container"> 
-      <div className="profile-header">
-          my listings
-      </div>
+    <div className="profile-container">
+      <div className="profile-header">my listings</div>
       <div className="my-listings">
-        {Array.from({ length: 1 }).map((_, index) => (
-          isComponentVisible && <ProductCard product={tempProduct} key={index} isDeletable={true} onDelete={handleDelete}/>
-        ))}
+        {myProducts.length > 0 ? (
+          myProducts.map((product) => (
+            <ProductCard
+              key={product._id}
+              product={product}
+              isDeletable={true}
+              onDelete={handleDelete}
+            />
+          ))
+        ) : (
+          <p>You have no listings.</p>
+        )}
       </div>
     </div>
   );
 };
-
 export default MyListings;
+
+// const [isComponentVisible, setIsComponentVisible] = useState(true);
+// const handleDelete = () => {
+//   setIsComponentVisible(false);
+// };
+// return (
+//   <div className="profile-container">
+//     <div className="profile-header">my listings</div>
+//     <div className="my-listings">
+//       {Array.from({ length: 1 }).map(
+//         (_, index) =>
+//           isComponentVisible && (
+//             <ProductCard
+//               product={tempProduct}
+//               key={index}
+//               isDeletable={true}
+//               onDelete={handleDelete}
+//             />
+//           )
+//       )}
+//     </div>
+//   </div>
+//

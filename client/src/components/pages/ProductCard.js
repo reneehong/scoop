@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductCard.css";
+import axios from "axios";
 import axios from "axios";
 import DeleteButton from "./DeleteButton.js";
 import { Link } from "react-router-dom";
@@ -8,6 +10,25 @@ import { Link } from "react-router-dom";
 function ProductCard({ product, isDeletable, onDelete }) {
   const { _id, name, price, description, link, category, imageBuffer, image, userId } = product;
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
+  const [userName, setUserName] = useState({ firstName: "", lastName: "" });
+  const [userEmail, setUserEmail] = useState("");
+  useEffect(() => {
+    const fetchUserName = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/api/user/${userId}`);
+        console.log("firstname", response.data.firstName);
+        setUserName({
+          firstName: response.data.firstName,
+          lastName: response.data.lastName,
+        });
+        setUserEmail(response.data.email);
+      } catch (error) {
+        console.error("Error fetching user name:", error);
+      }
+    };
+
+    fetchUserName();
+  }, [userId]);
   const [userName, setUserName] = useState({ firstName: "", lastName: "" });
   const [userEmail, setUserEmail] = useState("");
   useEffect(() => {
