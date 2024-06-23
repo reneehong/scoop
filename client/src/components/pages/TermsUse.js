@@ -5,10 +5,9 @@ import "./TermsUse.css";
 const TermsUse = () => {
   return (
     <div className="container">
-      <div className="termsheader">
-        <strong>Terms of Use</strong>
-      </div>
+      <div className="termsheader"></div>
       <div className="termstext">
+        <h1>Terms of Use</h1>
         <h2>Introduction</h2>
         <p>
           Welcome to Scoop. These Terms of Use ("Terms") govern your access to and use of our
