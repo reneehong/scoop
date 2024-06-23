@@ -3,7 +3,7 @@ import "./MyListings.css";
 import ProductCard from "./ProductCard";
 import pear_picture from "../../assets/pear_picture.png";
 
-const tempProduct = {name:"Placeholder", price:"12", description:"This is a placeholder", imageBuffer: pear_picture};
+const tempProduct = {name:"Placeholder", price:"12", description:"This is a placeholder", imageBuffer: null, image: pear_picture};
 const MyListings = () => {
   const [isComponentVisible, setIsComponentVisible] = useState(true);
   const handleDelete = () => {

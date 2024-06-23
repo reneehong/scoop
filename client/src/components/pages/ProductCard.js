@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 
 //pear picture and other info should be replaced with product info
 function ProductCard({ product, isDeletable, onDelete }) {
-  const { name, price, description, link, category, imageBuffer } = product;
+  const { name, price, description, link, category, imageBuffer, image } = product;
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
 
   const handleDeleteClick = () => {
     setIsDeleteClicked(true);
     onDelete();
   };
-  const imageSrc = imageBuffer
+  const imageSrc = imageBuffer != null ? (imageBuffer
     ? `data:image/jpeg;base64,${btoa(String.fromCharCode(...new Uint8Array(imageBuffer.data)))}`
-    : "";
+    : "") : image;
   return (
     console.log(name, price, category, imageSrc),
     (
