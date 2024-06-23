@@ -26,6 +26,9 @@ const Footer = ({ handleContactUsClick, handleAboutClick }) => {
             <Link to="/privacypolicy" className="footer-link">
               privacy policy
             </Link>
+            <Link to="/termsofuse" className="foster-link">
+              terms of use
+            </Link>
           </div>
           <div className="footer-link-container-2">
             <Link

@@ -4,11 +4,10 @@ import "./PrivacyPolicy.css";
 const PrivacyPolicy = () => {
   return (
     <section className="container">
-      <div className="privacyheader">
-        <strong>Privacy Policy</strong>
-      </div>
+      <div className="privacyheader"></div>
       <div className="privacytext">
-        <h2> Introduction </h2>
+        <h1>Privacy Policy</h1>
+        <h3> Introduction </h3>
         <p>
           Welcome to Scoop. We are committed to protecting your personal information and your right
           to privacy. This Privacy Policy explains what information we collect, how we use it, and
@@ -18,7 +17,7 @@ const PrivacyPolicy = () => {
           the collection, use, and disclosure of your information in accordance with this Privacy
           Policy.
         </p>
-        <h2>Information We Collect</h2>
+        <h3>Information We Collect</h3>
         <p>
           We collect personal information that you provide to us directly, as well as information
           automatically collected when you use our website.
@@ -65,7 +64,7 @@ const PrivacyPolicy = () => {
             better user experience.
           </li>
         </div>
-        <h2>How We Use Your Information</h2>
+        <h3>How We Use Your Information</h3>
         <p>We use the information we collect for the following purposes:</p>
         <div className="bullet">
           <li>
@@ -93,7 +92,7 @@ const PrivacyPolicy = () => {
             with legal and regulatory requirements.
           </li>
         </div>
-        <h2>Sharing Your Information</h2>
+        <h3>Sharing Your Information</h3>
         <p>We may share your information with the following parties:</p>
         <div className="bullet">
           <li>
@@ -110,7 +109,7 @@ const PrivacyPolicy = () => {
             or in response to valid requests by public authorities.
           </li>
         </div>
-        <h2>Your Rights and Choices</h2>
+        <h3>Your Rights and Choices</h3>
         <p>You have certain rights regarding your personal information: </p>
         <div className="bullet">
           <li>
@@ -126,19 +125,19 @@ const PrivacyPolicy = () => {
             by following the unsubscribe instructions included in those communications.
           </li>
         </div>
-        <h2>Data Security</h2>
+        <h3>Data Security</h3>
         <p>
           We take reasonable measures to protect your personal information from unauthorized access,
           use, or disclosure. However, no data transmission over the internet or electronic storage
           system can be guaranteed to be 100% secure.
         </p>
-        <h2>Changes to This Privacy Policy</h2>
+        <h3>Changes to This Privacy Policy</h3>
         <p>
           We may update this Privacy Policy from time to time. We will notify you of any changes by
           posting the new Privacy Policy on our website. You are advised to review this Privacy
           Policy periodically for any changes.
         </p>
-        <h2>Contact Us</h2>
+        <h3>Contact Us</h3>
         <p>
           If you have any questions about this Privacy Policy, please contact us via our contact
           information on the homepage.
