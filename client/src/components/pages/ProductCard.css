@@ -4,13 +4,15 @@
 }
 
 .inline-container p {
-  margin-right: 80px; /* Space between the text and the button */
+  margin-right: 5px; /* Reduce space between the text and the button */
 }
 
 .product-card {
   display: flex;
   flex-direction: column;
   padding: 5%;
+  width: 100%;
+  height: 100%;
 }
 
 .delete-button {
@@ -18,10 +20,26 @@
 }
 
 .product-attributes {
-  margin-top: 1rem;
+  margin-top: -0.5rem; /* Reduce the top margin */
 }
 
 .product-card-link {
   text-decoration: none;
   color: inherit;
+  width: 100%; /* Ensure link takes full width */
+}
+
+.product-image {
+  width: 100%; /* Set image width to 100% of its parent container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the area of the container */
+
+  /* Set a maximum height for the images */
+}
+
+/* Remove unnecessary margins for close placement */
+.product-info {
+  margin: 0; /* Remove any margin */
+  padding: 2px 0; /* Add a small padding to avoid text touching */
+  line-height: 2; /* Adjust line height for closer spacing */
 }

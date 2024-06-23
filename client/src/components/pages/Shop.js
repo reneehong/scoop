@@ -26,7 +26,9 @@ const Shop = () => {
         <img src={waffleImage} alt="waffle" className="img" />
         <div className="overlay-text">
           <h1>the waffle shop</h1>
-          <p>have any goods you want to sell to your friends on campus for cheap?</p>
+          <p className="bold-text">
+            have any goods you want to sell to your friends on campus for cheap?
+          </p>
           <Link to="/addalisting">
             <button className="add-listing-button">add a listing here!</button>
           </Link>

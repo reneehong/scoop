@@ -44,9 +44,9 @@ const Preferences = ({ userId }) => {
 
   return (
     <div className="profile-container">
-      <div className="profile-header">Preferences</div>
+      <div className="profile-header">preferences</div>
       <button className="button" onClick={handleToggleDarkMode}>
-        Toggle to {darkMode ? "Light" : "Dark"} Mode
+        {darkMode ? "light" : "dark"} mode
       </button>
     </div>
   );

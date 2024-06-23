@@ -9,7 +9,7 @@ const SignIn = ({ setUserId, fetchUserMode }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    college: "Waffle University",
+    college: "waffU",
   });
   const { signin } = useAuth();
   const [error, setError] = useState("");
@@ -32,9 +32,9 @@ const SignIn = ({ setUserId, fetchUserMode }) => {
       navigate("/shop");
     } catch (error) {
       if (error.response && error.response.data) {
-        alert(error.response.data.error);
+        setError("Invalid email or password");
       } else {
-        alert("An unknown error occurred.");
+        setError("An unknown error occurred.");
       }
     }
     console.log(formData);
@@ -52,18 +52,18 @@ const SignIn = ({ setUserId, fetchUserMode }) => {
         </p>
         <form onSubmit={handleSubmit} className="signin-form">
           <div className="form-group">
-            <label htmlFor="email">Email address</label>
+            <label htmlFor="email">email address</label>
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="renee12@mit.edu"
+              placeholder="wafflelover24@gmail.com"
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">password</label>
             <input
               type="password"
               id="password"
@@ -74,16 +74,16 @@ const SignIn = ({ setUserId, fetchUserMode }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="college">College</label>
+            <label htmlFor="college">college</label>
             <select id="college" name="college" value={formData.college} onChange={handleChange}>
-              <option value="Waffle University">Waffle University</option>
+              <option value="Waffle University">waffU</option>
             </select>
           </div>
           <button type="submit" className="submit-button">
-            Submit
+            submit
           </button>
+          {error && <div className="error-message">invalid email/password</div>}
         </form>
-        {error && <p className="error-message">{error}</p>}
       </div>
       <div className="signin-image-container">
         <img src={GirlEatingIceCream} alt="Child eating ice cream" className="signin-image" />

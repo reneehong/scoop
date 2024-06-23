@@ -1,10 +1,8 @@
-/* SignUp.css */
-
 .signup-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
+  align-items: center;
+  padding: 0 30px;
   font-family: Arial, sans-serif;
   flex-wrap: wrap;
   width: 100%;
@@ -29,7 +27,7 @@
 
 .signin-link {
   color: #828282;
-  text-decoration: None;
+  text-decoration: none;
   font-weight: bold;
 }
 
@@ -67,7 +65,7 @@
 
 /* College Dropdown */
 .form-group select {
-  width: 208.3%; 
+  width: 208.3%;
 }
 
 .submit-button {
@@ -79,6 +77,15 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 2px; /* Reduced margin for closer error message */
+}
+
+.error-message {
+  grid-column: span 2; /* Span both columns */
+  color: red;
+  font-size: 0.9em;
+  text-align: center; /* Center align the error message */
+  margin-top: 2px; /* Reduced margin for closer error message */
 }
 
 .signup-image-container {
@@ -114,6 +121,10 @@
   .submit-button {
     grid-column: span 1; /* Span single column */
   }
+
+  .error-message {
+    grid-column: span 1; /* Span single column */
+  }
 }
 
 @media (max-width: 480px) {
@@ -134,5 +145,9 @@
   .submit-button {
     padding: 8px;
     font-size: 0.9em;
+  }
+
+  .error-message {
+    font-size: 0.8em;
   }
 }

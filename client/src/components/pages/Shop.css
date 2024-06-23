@@ -17,6 +17,15 @@
   max-width: 100%; /* Ensure the image does not exceed its container */
 }
 
+.bold-text {
+  font-weight: 550;
+}
+
+.img {
+  opacity: 0.9; /* Adjust the value between 0 and 1 for desired opacity */
+  filter: brightness(0.7);
+}
+
 /* CSS styles for text overlay */
 .container .overlay-text {
   position: absolute;
@@ -38,9 +47,15 @@
 .add-listing-button {
   background-color: #000;
   color: white;
-  padding: 1%;
+  padding: 1% 2%;
 }
 
 .add-listing-button:hover {
-  background-color: #0056b3; /* Darken the background color on hover */
+  background-color: rgb(246, 242, 149); /* Darken the background color on hover */
+  color: black;
+}
+
+.shopsection {
+  padding-right: 10%;
+  padding-left: 10%;
 }

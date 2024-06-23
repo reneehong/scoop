@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import React, { useState, useEffect } from "react";
+
 import "./ProductCard.css";
-import axios from "axios";
 import axios from "axios";
 import DeleteButton from "./DeleteButton.js";
 import { Link } from "react-router-dom";
@@ -46,11 +45,11 @@ function ProductCard({ product, isDeletable, onDelete }) {
     isDeletable ? (
       <div className="product-card">
         <img src={imageSrc} alt={name} className="product-image" />
-        <p style={{ fontWeight: 500 }}>product: {name}</p>
-        <p style={{ color: "#828282", fontWeight: 400 }}>description: {description}</p>
-        <p style={{ color: "#828282", fontWeight: 400 }}>original link: {link}</p>
+        <p style={{ fontWeight: 500 }}> {name}</p>
+        {/* <p style={{ color: "#828282", fontWeight: 400 }}>description: {description}</p> */}
+        {/* <p style={{ color: "#828282", fontWeight: 400 }}>original link: {link}</p> */}
         <div className="inline-container">
-          <p style={{ fontWeight: 500 }}>price: ${price}</p>
+          <p style={{ fontWeight: 500 }}> ${price}</p>
           {isDeletable && <DeleteButton className="delete-button" onClick={handleDeleteClick} />}
         </div>
       </div>
@@ -62,20 +61,21 @@ function ProductCard({ product, isDeletable, onDelete }) {
       >
         <div className="product-card">
           <img src={imageSrc} alt={name} className="product-image" />
+          <p style={{ fontWeight: 200 }}>
+            {userName.firstName} {userName.lastName}
+          </p>
           <p className="product-attributes" style={{ fontWeight: 500 }}>
-            product: {name}
+            {name}
           </p>
-          <p style={{ color: "#828282", fontWeight: 400 }}>
-            seller: {userName.firstName} {userName.lastName}
-          </p>
-          <p className="product-attributes" style={{ color: "#828282", fontWeight: 400 }}>
+
+          {/* <p className="product-attributes" style={{ color: "#828282", fontWeight: 400 }}>
             description: {description}
-          </p>
-          <p className="product-attributes" style={{ color: "#828282", fontWeight: 400 }}>
+          </p> */}
+          {/* <p className="product-attributes" style={{ color: "#828282", fontWeight: 400 }}>
             original link: {link}
-          </p>
+          </p> */}
           <div className="inline-container">
-            <p style={{ fontWeight: 500 }}>price: ${price}</p>
+            <p style={{ fontWeight: 300, fontSize: 14 }}>${price}</p>
             {isDeletable && <DeleteButton className="delete-button" onClick={onDelete} />}
           </div>
         </div>

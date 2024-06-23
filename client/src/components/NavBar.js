@@ -18,7 +18,7 @@ const Navbar = () => {
           </Link>
         )}
         <Link to={isAuthenticated ? "/profile" : "/signup"}>
-          <button className="navbar-button">{isAuthenticated ? "Profile" : "Join Now"}</button>
+          <button className="navbar-button">{isAuthenticated ? "Profile" : "join now"}</button>
         </Link>
       </div>
     </div>
