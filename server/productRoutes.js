@@ -37,6 +37,27 @@ router.post("/create", upload.single("imageFile"), async (req, res) => {
   }
 });
 
+router.delete("/products/:id", async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).send({ error: "Product not found" });
+    }
+
+    const user = await User.findById(product.userId);
+    if (user) {
+      user.products = user.products.filter((p) => p.toString() !== productId);
+      await user.save();
+    }
+
+    await product.remove();
+    res.status(200).send({ message: "Product deleted successfully" });
+  } catch (error) {
+    res.status(500).send({ error: "Failed to delete product" });
+  }
+});
+
 router.get("/all", async (req, res) => {
   try {
     const products = await Product.find();

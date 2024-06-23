@@ -74,6 +74,18 @@ router.get("/mode/:id", async (req, res) => {
   }
 });
 
+router.get("/user/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    res.send({ firstName: user.firstName, lastName: user.lastName, email: user.email });
+  } catch (error) {
+    res.status(500).send({ error: "Internal server error" });
+  }
+});
+
 router.post("/mode", async (req, res) => {
   try {
     const { _id, mode } = req.body;

@@ -19,13 +19,28 @@ const MyListings = ({ userId }) => {
     };
     fetchMyProducts();
   }, [userId]);
+
+  const handleDelete = async (productId) => {
+    try {
+      await axios.delete(`http://localhost:3000/api/products/${productId}`);
+      setMyProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
+
   return (
     <div className="profile-container">
       <div className="profile-header">my listings</div>
       <div className="my-listings">
         {myProducts.length > 0 ? (
           myProducts.map((product) => (
-            <ProductCard key={product._id} product={product} isDeletable={true} />
+            <ProductCard
+              key={product._id}
+              product={product}
+              isDeletable={true}
+              onDelete={handleDelete}
+            />
           ))
         ) : (
           <p>You have no listings.</p>
