@@ -1,6 +1,8 @@
 /* Define common styles */
-.preferences-container {
-  padding: 20px;
+.profile-header {
+  font-size: 45px;
+  font-weight: bold;
+  padding-bottom: 5%;
 }
 
 /* Light mode styles */
@@ -15,7 +17,13 @@
   color: #ffffff;
 }
 
-/* Header styles */
-.profile-header {
-  font-size: 2rem;
+.button {
+  display: block;
+  padding: 15px 45px;
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+  text-decoration: none;
 }
+/* Header styles */
+

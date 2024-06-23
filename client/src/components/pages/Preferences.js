@@ -6,9 +6,9 @@ const Preferences = () => {
   const { darkMode, toggleDarkMode } = useTheme();
 
   return (
-    <div className="preferences-container">
-      <h1 className="profile-header">Preferences</h1>
-      <button onClick={toggleDarkMode}>
+    <div className="profile-container">
+      <div className="profile-header">Preferences</div>
+      <button className="button" onClick={toggleDarkMode}>
         Toggle to {darkMode ? "Light" : "Dark"} Mode
       </button>
     </div>
