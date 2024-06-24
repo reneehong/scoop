@@ -33,8 +33,10 @@ const SignIn = ({ setUserId, fetchUserMode }) => {
     } catch (error) {
       if (error.response && error.response.data) {
         setError("Invalid email or password");
+        console.log(error);
       } else {
         setError("An unknown error occurred.");
+        console.log(error);
       }
     }
     console.log(formData);
@@ -76,7 +78,7 @@ const SignIn = ({ setUserId, fetchUserMode }) => {
           <div className="form-group">
             <label htmlFor="college">college</label>
             <select id="college" name="college" value={formData.college} onChange={handleChange}>
-              <option value="Waffle University">waffU</option>
+              <option value="waffU">waffU</option>
             </select>
           </div>
           <button type="submit" className="submit-button">

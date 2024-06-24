@@ -30,11 +30,9 @@ const Profile = ({ userId }) => {
     <div className="profile-container">
       <div className="profile-header">my profile</div>
       <form className="profile-form" onSubmit={handleSubmit}>
-        <br />
         <div className="profile-input">
           <label>
             current password (to change)
-            <br />
             <input
               type="password"
               value={currentPassword}

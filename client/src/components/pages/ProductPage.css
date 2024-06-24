@@ -2,16 +2,15 @@
   display: flex;
   justify-content: center;
   padding: 40px; /* Increased padding for more space */
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .main-product {
   display: flex;
   max-width: 1000px; /* Increased max-width for more space */
   width: 100%;
-  align-items: flex-start; /* Align items to the start for better spacing */
+  align-items: center; /* Align items to the start for better spacing */
   justify-content: flex-start; /* Move content to the left */
   gap: 40px; /* Added gap between image and info */
 }

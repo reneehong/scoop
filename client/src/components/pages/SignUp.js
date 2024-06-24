@@ -12,7 +12,7 @@ const SignUp = ({ setUserId, fetchUserMode }) => {
     lastName: "",
     email: "",
     password: "",
-    college: "Waffle University",
+    college: "waffU",
   });
   const { signup } = useAuth();
   const [error, setError] = useState("");
@@ -30,7 +30,7 @@ const SignUp = ({ setUserId, fetchUserMode }) => {
     // Validate form inputs
     const { firstName, lastName, email, password } = formData;
     if (!firstName || !lastName || !email || !password) {
-      setError("All fields are required.");
+      setError("all fields are required");
       return;
     }
 
@@ -43,9 +43,9 @@ const SignUp = ({ setUserId, fetchUserMode }) => {
       navigate("/shop");
     } catch (error) {
       if (error.response && error.response.data) {
-        setError("Invalid email or password");
+        setError("invalid email or password");
       } else {
-        setError("An unknown error occurred.");
+        setError("an unknown error occurred.");
       }
     }
     console.log(formData);
@@ -109,13 +109,13 @@ const SignUp = ({ setUserId, fetchUserMode }) => {
           <div className="form-group">
             <label htmlFor="college">college</label>
             <select id="college" name="college" value={formData.college} onChange={handleChange}>
-              <option value="Waffle University">waffU</option>
+              <option value="waffU">waffU</option>
             </select>
           </div>
           <button type="submit" className="submit-button">
             submit
           </button>
-          {error && <div className="error-message">all field are required</div>}
+          {error && <div className="error-message">{error}</div>}
         </form>
       </div>
       <div className="signup-image-container">
